@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container{
+            height: 25%;
+            width:90%;
+            display: grid;
+            grid-template-columns: repeat(8,1fr);
+            grid-template-areas: "one one four five six sev eig nine" ;
+            
+            gap: 10px;
+            margin: auto;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .container > div:first-child{
+            grid-area: one;
+            
+        }
+        .container > div:nth-child(2){
+            grid-area: two;
+            
+        }
+        
+        .container > div:nth-child(3){
+            grid-area:four;
+            
+        }
+        .container > div:nth-child(4){
+            grid-area:five;
+            
+        }
+        .container > div:nth-child(5){
+            grid-area: six;
+        
+        }
+
+        .container > div:nth-child(6){
+            grid-area: sev;
+            
+        }
+        .container > div:nth-child(7){
+            grid-area: eig;
+        
+        }
+        .container > div:nth-child(8){
+            grid-area: nine;
+        
+        }
+        ul{
+            display: none;
+            position: absolute;
+        
+            
+            z-index: 1;
+            list-style-type: none;
+        }
+        .item4:hover .ul{
+            display: block;
+            position: absolute;
+        }
+        button{
+            border:1px solid orangered;
+            height: 30px;
+            background-color: white;
+            color: orangered;
+            padding: 0 20px 0 20px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button:hover{
+            background-color: orangered;
+            box-shadow: 2px 2px 20px orangered;
+            color: white;
+        }
+        @media all and (max-width: 699px) {
+            .container{
+                margin: auto;
+            grid-template-rows: repeat(3,1fr);
+            grid-template-areas: 
+            "one one nine" 
+            "four five six "
+            "sev eig eig";
+            justify-content: space-around;
+            }
+        }    
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1"><img src="https://www.masaischool.com/img/navbar/logo.svg"></div>
+        <div class="item2"></div>
+        
+        <div class="item4">Courses
+            <ul class="ul">
+                <li>Web Development</li>
+                <li>Android Development</li>
+            </ul>
+        </div>
+        <div class="item5">Fees & ISA</div>
+        <div class="item6">About Us</div>
+        <div class="item7">Hire From Us</div>
+        <div class="item8"><a style="text-decoration: none;color: lightseagreen;" href=""#>Refer & Earn</a></div>
+        <div class="item9"><button type="button">Login</button></div>
+    </div>
+</body>
+</html>
