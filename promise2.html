@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonalds</title>
+    <style>
+        #container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        #food{
+            width: 220px;
+            height:auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(35, 32, 32);
+            border-radius: 5px;
+            margin-bottom:20px ;
+            margin-right: 25px;
+        }
+        #img{
+            object-fit: cover;
+            height: 180px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+    </style>
+    </head>
+    <body>
+        <div id="container">
+
+        </div>
+    </body>
+    </html>
+    <script>
+        var arr=JSON.parse(localStorage.getItem("chosenList")) || [];
+        
+        var total=0;
+        setTimeout(function(){
+            show(arr);
+        },3000);
+        function show(data){
+    data.map(function(elem){
+        var div=document.createElement("div");
+                div.setAttribute("id","food");
+                var img=document.createElement("img");
+                img.setAttribute("src",elem.img);
+                img.setAttribute("id","img");
+                
+
+                var name=document.createElement("h4");
+                name.innerText=elem.name;
+
+                    var price=document.createElement("p")
+                    price.innerText=elem.price+"/-";
+                    var a=elem.price;
+                    console.log(typeof(a));
+                  
+                        total+=a;
+                    console.log(total);
+                    
+              
+                    div.append(img,name,price);
+                    document.querySelector("#container").append(div);
+    });
+    
+    
+}
+
+    </script>
