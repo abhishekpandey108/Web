@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pop-Up</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #buttons{
+        display: flex;
+        justify-content: space-around;
+        background-color: rgb(104, 195, 104);
+        padding: 20px;
+      }
+      #buttons>button{
+        color: white;
+        background-color: orangered;
+        height:30px;
+        min-width:60px;
+        border-radius: 12rem;
+        border: none;
+        padding-left: 5px;
+        padding-right: 5px;
+        cursor: pointer;
+
+      }
+      .sc{
+        display: inline-block;
+        border: 1px solid black;
+        background-color: beige;
+        padding: 10px;
+        line-height: 20px;
+        position: absolute;
+        top:50% ;
+        left:50%;
+        transform: translate(-50%,-50%);
+        display: none;
+      }
+      .cut{
+        display: block;
+        background-color: rgb(189, 3, 3);
+        color:white;
+        cursor: pointer;
+        border: none;
+        height: 20px;
+        width:40px;
+        border-radius: 2px;
+
+      }
+
+      @media screen and (max-width: 768px) {
+         .sc{
+          top:30%;
+          margin-top: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="buttons">
+      <!--Create buttons namely “Scope”, “Hoisting”, ‘Constructor Functions’, ‘Prototype’ in index.html. Each button will have it's respective name as HTML id. For e.g Scope button will HTML id as "scope". ( Note: no capital letter in id )-->
+      <button id="scope">Scope</button>
+      <button id="hoisting">Hoisting</button>
+      <button id="constructor">Constructor Functions</button>
+      <button id="prototype">Prototype</button>
+    </div>
+
+    <div class="sc">
+      
+    </div>
+   
+  </body>
+</html>
+<script>
+  document.getElementById("scope").addEventListener("click",Scope);
+  
+  function Scope(){
+    del();
+    document.querySelector(".sc").style.display="block";
+    var scopeArr=[
+        {
+          type1:"Global Scope",
+          type2:"Local/Function Scope",
+          vid:"https://www.youtube.com/embed/bD-62OMzni0",
+        }
+
+    ]
+    localStorage.setItem("Scope",JSON.stringify(scopeArr));
+     display(scopeArr);
+
+    function display(data){
+        data.map(function(elem){
+          var li1=document.createElement("li");
+            li1.innerText=elem.type1;
+
+            var li2=document.createElement("li");
+            li2.innerText=elem.type2;
+            li2.style.paddingBottom="20px";
+      
+        var object=document.createElement("object");
+        object.setAttribute("data",elem.vid);
+        object.style.width="300px";
+        object.style.height="200px";
+        object.style.paddingBottom="20px";
+        var cut=document.createElement("button");
+        cut.innerText="close";
+        cut.className="cut";
+        cut.addEventListener("click",del);
+        document.querySelector(".sc").append(li1,li2,object,cut);
+        });
+    }
+  }
+
+
+
+  document.getElementById("hoisting").addEventListener("click",Hoisting);
+  
+  function Hoisting(){
+    del();
+    document.querySelector(".sc").style.display="block";
+    var scopeArr=[
+        {
+          type1:"Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.",
+          type2:"Hoisting allows functions to be safely used in code before they are declared.",
+          vid:"https://www.youtube.com/embed/AplVrrwY1TI",
+        }
+
+    ]
+    localStorage.setItem("Hoisting",JSON.stringify(scopeArr));
+     display(scopeArr);
+
+    function display(data){
+        data.map(function(elem){
+          var li1=document.createElement("li");
+            li1.innerText=elem.type1;
+
+            var li2=document.createElement("li");
+            li2.innerText=elem.type2;
+            li2.style.paddingBottom="20px";
+      
+        var object=document.createElement("object");
+        object.setAttribute("data",elem.vid);
+        object.style.width="300px";
+        object.style.height="200px";
+        object.style.paddingBottom="20px";
+        var cut=document.createElement("button");
+        cut.innerText="close";
+        cut.className="cut";
+        cut.addEventListener("click",del);
+        document.querySelector(".sc").append(li1,li2,object,cut);
+        });
+    }
+  }
+
+
+
+  document.getElementById("constructor").addEventListener("click",Constructor);
+  
+  function Constructor(){
+    del();
+    document.querySelector(".sc").style.display="block";
+    var scopeArr=[
+        {
+          type1:"A constructor is a special function that creates and initializes an object instance of a class. In JavaScript, a constructor gets called when an object is created using the new keyword.",
+          type2:"The purpose of a constructor is to create a new object and set values for any existing object properties.",
+          vid:"https://www.youtube.com/embed/tV7ZqcB9J3Y",
+        }
+
+    ]
+    localStorage.setItem("Constructor",JSON.stringify(scopeArr));
+     display(scopeArr);
+
+    function display(data){
+        data.map(function(elem){
+          var li1=document.createElement("li");
+            li1.innerText=elem.type1;
+
+            var li2=document.createElement("li");
+            li2.innerText=elem.type2;
+            li2.style.paddingBottom="20px";
+      
+        var object=document.createElement("object");
+        object.setAttribute("data",elem.vid);
+        object.style.width="300px";
+        object.style.height="200px";
+        object.style.paddingBottom="20px";
+        var cut=document.createElement("button");
+        cut.innerText="close";
+        cut.className="cut";
+        cut.addEventListener("click",del);
+        document.querySelector(".sc").append(li1,li2,object,cut);
+        });
+    }
+  }
+
+
+  document.getElementById("prototype").addEventListener("click",Prototype);
+  
+  function Prototype(){
+    del();
+    document.querySelector(".sc").style.display="block";
+    var scopeArr=[
+        {
+          type1:"A prototype is an existing inbuilt functionality in JavaScript.",
+          type2:"Whenever we create a JavaScript function, JavaScript adds a prototype property to that function.",
+          type3:"A prototype is an object, where it can add new variables and methods to the existing object.",
+          vid:"https://www.youtube.com/embed/kCb8HVgMzMo",
+        }
+
+    ]
+    localStorage.setItem("Constructor",JSON.stringify(scopeArr));
+     display(scopeArr);
+
+    function display(data){
+        data.map(function(elem){
+          var li1=document.createElement("li");
+            li1.innerText=elem.type1;
+
+            var li2=document.createElement("li");
+            li2.innerText=elem.type2;
+
+            var li3=document.createElement("li");
+            li3.innerText=elem.type3
+            li3.style.paddingBottom="20px";
+      
+        var object=document.createElement("object");
+        object.setAttribute("data",elem.vid);
+        
+        object.style.width="auto";
+        object.style.height="200px";
+        object.style.paddingBottom="20px";
+        var cut=document.createElement("button");
+        cut.innerText="close";
+        cut.className="cut";
+        cut.addEventListener("click",del);
+        document.querySelector(".sc").append(li1,li2,li3,object,cut);
+        });
+    }
+  }
+
+  function del(){
+    document.querySelector(".sc").innerText="";
+    document.querySelector(".sc").style.display="none";
+  }
+
+</script>
