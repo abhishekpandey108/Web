@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <style>
+        .container{
+            width: 30vw;
+            margin: auto;
+            border: 1px solid gray;
+            padding: 20px;
+            background-color: gray;
+            opacity: 0.8;
+        }
+        .head{
+            background-color: black;
+            color: white;
+            width: 40vw;
+            margin: auto;
+        }
+        .head h1{
+
+            text-align: center;
+        }
+        
+        input[type="text"],input[type="password"]{
+        display: block;
+        width:30vw;
+        line-height: 35px;
+        margin-bottom: 15px;
+        background: transparent;
+      
+        }
+        input[type="submit"]{
+            display: block;
+            width:30vw;
+            margin-top: 15px;
+            height: 40px;
+            font-size: 20px;
+            letter-spacing: 2px;
+            background-color: rgb(15, 79, 168);
+            color: white;
+            cursor: pointer;
+            border-radius: 12rem;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(3, 66, 138);
+        }
+        input{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid aqua;
+           
+        }
+    </style>
+    </head>
+    <body>
+        <div class="head"><h1>Sign in</h1></div>
+        <div class="container">
+            <div class="inputBox">
+            <label class="na">Username</label>
+            <input type="text" id="name">
+            </div>
+            
+            <div class="inputBox">
+            <label>Password</label><br>
+            <input type="password" id="pass">
+            </div>
+            <input type="submit" id="sub" placeholder="Submit">
+        </div>
+    </body>
+    </html>
+    <script>
+        document.querySelector("#sub").addEventListener("click",checkData);
+       
+        function checkData(){
+        event.preventDefault();
+        var name = document.getElementById('name').value;
+        var password = document.getElementById('pass').value;
+
+        var formData = JSON.parse(localStorage.getItem('List')) || [];
+
+        var dataExist = formData.length &&
+                        JSON.parse(localStorage.getItem('List')).some(data =>
+                            data.name == name &&
+                            data.password.toLowerCase() == password.toLowerCase());
+        
+        if (!dataExist) {
+            alert('Incorrect Login credentials')
+        } else {
+            alert("Congrats! you have successfully Sign in");
+            
+        }
+    }
+    </script>
