@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonalds</title>
+    <style>
+        #containerr{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        #food{
+            width: 220px;
+            height:auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(35, 32, 32);
+            border-radius: 5px;
+            margin-bottom:20px ;
+            margin-right: 25px;
+        }
+        #img{
+            object-fit: cover;
+            height: 180px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        #undiv{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+        }
+        p{
+            font-weight: bolder;
+        }
+        input[type="checkbox"]{
+            transform: scale(2);
+            margin-right: 10px;
+            border-color: green;
+            background-color: green;
+        }
+        #check{
+            background-color: #a77e2d !important;
+            color: #ffffff !important;
+        }
+        h1{
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 0;
+            color: orange;
+        }
+        h3{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 0;
+            color: orange;
+        }
+        #btn{
+            position: fixed;
+            bottom: 10px;
+            right:10px;
+            background-color: green;
+            color: white;
+            opacity: 0.7;
+            border-radius: 12rem;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #btn:hover{
+            opacity: 1;
+        }
+        #btnAdd{
+            position: fixed;
+            top: 10px;
+            left:10px;
+            background-color: rgb(211, 37, 37);
+            color: white;
+            opacity: 0.7;
+            border-radius: 12rem;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #btnAdd:hover{
+            opacity: 1;
+        }
+        #for{
+            display: none;
+            position: fixed;
+            top:50px;
+            left:10px;
+            background-color: gray;
+            opacity: 0.7;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        input[type="text"],input[type="url"],input[type="number"]{
+            border:none;
+            outline: none;
+            background: transparent;
+            border-bottom: 1px solid white;
+        }
+        #LS{
+            background-color: green;
+            color: white;
+            opacity: 0.7;
+            border-radius: 12rem;
+            border: none;
+            padding: 2px 10px;
+            cursor: pointer;
+            margin: 5px;
+            
+        }
+        #LS:hover{
+            opacity: 1;
+        }
+
+    </style>
+    </head>
+    <body>
+        <h1><u>McDonalds</u></h1>
+        <h3>Always hungry to eat</h3>
+        <button id="btnAdd">Add more Food</button>
+        <form id="for">
+            <p>img url</p>
+            <input type="url" placeholder="Enter image url..." id="url">
+            <p>item-name</p>
+            <input type="text" placeholder="Enter food name..." id="name">
+            <p>price</p>
+            <input type="number" id="price"><br/>
+            <button id="LS">Submit</button>
+        </form>
+        <!-- <div id="container">
+            <div id="food">
+            <img src="https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg">
+            <h4>Hot & Cheesy Burger</h4>
+            <div id="undiv">
+                <p>199/-</p>
+                <input type="checkbox" id="check">
+            </div>
+            </div>
+
+            <div id="food">
+                <img src="https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg">
+                <h4>Hot & Cheesy Burger</h4>
+                <div id="undiv">
+                    <p>199/-</p>
+                    <input type="checkbox" id="check">
+                </div>
+            </div>
+
+            <div id="food">
+                <img src="https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg">
+                <h4>Hot & Cheesy Burger</h4>
+                <div id="undiv">
+                    <p>199/-</p>
+                    <input type="checkbox" id="check">
+                </div>
+            </div>
+
+            <div id="food">
+                <img src="https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg">
+                <h4>Hot & Cheesy Burger</h4>
+                <div id="undiv">
+                    <p>199/-</p>
+                    <input type="checkbox" id="check">
+                </div>
+            </div>
+
+            <div id="food">
+                <img src="https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg">
+                <h4>Hot & Cheesy Burger</h4>
+                <div id="undiv">
+                    <p>199/-</p>
+                    <input type="checkbox" id="check">
+                </div>
+            </div>
+
+            <div id="food">
+                <img src="https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg">
+                <h4>Hot & Cheesy Burger</h4>
+                <div id="undiv">
+                    <p>199/-</p>
+                    <input type="checkbox" id="check">
+                </div>
+            </div>
+
+            <div id="food">
+                <img src="https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg">
+                <h4>Hot & Cheesy Burger</h4>
+                <div id="undiv">
+                    <p>199/-</p>
+                    <input type="checkbox" id="check">
+                </div>
+            </div>
+        </div> -->
+        <div id="containerr">
+
+        </div>
+       <button id="btn">Place Order</button>
+    </body>
+</html>
+<script>
+    document.querySelector("#btnAdd").addEventListener("click",disp);
+    function disp(){
+        console.log(1);
+        var x = document.getElementById("for");
+            if (x.style.display == "none") {
+                x.style.display = "inline-block";
+                document.getElementById("btnAdd").innerText="Close";
+                document.getElementById("btnAdd").style.backgroundColor="red";
+                console.log(123);
+            } else {
+                x.style.display = "none";
+                document.getElementById("btnAdd").innerText="Add more Food";
+                document.getElementById("btnAdd").style.backgroundColor="rgb(36, 150, 36)";
+                console.log(321);
+            }
+    }
+
+    document.querySelector("#LS").addEventListener("click",store);
+    var arr=JSON.parse(localStorage.getItem("FoodList")) || [];
+    function store(){
+        var obj={
+            img:document.getElementById("url").value,
+            name:document.getElementById("name").value,
+            price:document.getElementById("price").value,
+            uid:Math.floor((Math.random() * 10000) + 1),
+        }
+        arr.push(obj);
+        localStorage.setItem("FoodList",JSON.stringify(arr));
+        
+    }
+
+    //  var arr=[
+    //              {
+    //                  img:"https://burgerking-image.s3.amazonaws.com/products/PLP/web/2x_web_20220221050351039528_482x264jpg",
+    //                  name:"Hot & Cheesy Burger",
+    //                  price:"199/-",
+    //                  uid:Math.floor((Math.random() * 10000) + 1),
+    //              }
+    //          ];
+
+        
+        console.log(arr);
+        var arr=JSON.parse(localStorage.getItem("FoodList")) || [];
+         show(arr);
+
+function show(data){
+    data.map(function(elem){
+        var div=document.createElement("div");
+                div.setAttribute("id","food");
+                var img=document.createElement("img");
+                img.setAttribute("src",elem.img);
+                img.setAttribute("id","img");
+                
+
+                var name=document.createElement("h4");
+                name.innerText=elem.name;
+
+                var undiv=document.createElement("div");
+                undiv.setAttribute("id","undiv");
+
+                    var price=document.createElement("p")
+                    price.innerText=elem.price+"/-";
+                   
+                    var check=document.createElement("input");
+                    check.setAttribute("type","checkbox");
+                    check.addEventListener("click",function(){
+                        add(elem.uid);
+                    });
+                    // check.addEventListener("click",function(){
+                    //     if(check.checked==true)
+                    //     add(elem.uid);
+
+                    // });
+
+                    
+                    undiv.append(price,check);
+                    div.append(img,name,undiv);
+                    document.querySelector("#containerr").append(div);
+    });
+    
+    
+}
+
+
+
+document.querySelector("#btn").addEventListener("click",newPage);
+function newPage(){
+    windo
+}
+var arr=JSON.parse(localStorage.getItem("FoodList")) || [];
+// function add(id){
+            
+//         var checked=arr.filter(function(elem){
+//             return elem.uid==id;
+//             var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+//             for (var checkbox of checkboxes) {
+//                 document.body.append(checkbox.value + ' ');
+//             }
+//             console.log(checkboxes);
+//         });
+        
+//     }
+
+
+function add(id){
+    var newArr=JSON.parse(localStorage.getItem("chosenList")) || [];
+    var count=0;
+    newArr.forEach(o => {
+        if (o.uid === id) {
+            count++;
+            console.log("count: ",count);
+        }
+    });
+     
+
+    if(count==0){
+        var item=arr.filter(function(elem){
+                return elem.uid==id;
+         });
+        newArr.push(item[0]);
+        localStorage.setItem("chosenList",JSON.stringify(newArr));
+        console.log(id);
+    }
+
+    else{
+        var updatedArr=newArr.filter(function(elem){
+                return elem.uid != id;
+            });
+     localStorage.setItem("chosenList",JSON.stringify(updatedArr));
+
+    }
+    
+}
+
+
+</script>
