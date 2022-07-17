@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Battle</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-around;
+        }
+        .container>div{
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+        }
+        #winner{
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+        }
+        h1{
+            text-align: center;
+        }
+        #roll{
+            border: none;
+            background-color: orangered;
+            color: white;
+            width: 70px;
+            height: 40px;
+            border-radius: 12rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="winner"><h1 class="winner"></h1></div>
+    <h2>Winner</h2>
+    <div class="container">
+        <div id="member-1"><h1 class="member-1"></h1></div>
+        <div id="member-2"><h1 class="member-2"></h1></div>
+        <div id="member-3"><h1 class="member-3"></h1></div>
+    </div>
+    <button id="roll">Roll</button>
+</body>
+</html>
+<script>
+    var sum1=0,sum2=0,sum3=0;
+    document.querySelector("#roll").addEventListener("click",funNum);
+    
+    function funNum(){
+       
+       var a = Math.floor((Math.random() * 6) + 1);
+       console.log(a);
+       sum1+=a;
+       document.querySelector(".member-1").innerText=sum1;
+       
+       
+       
+
+       var b = Math.floor((Math.random() * 6) + 1);
+       console.log(b);
+       sum2+=b;
+       document.querySelector(".member-2").innerText=sum2;
+      
+
+       var c = Math.floor((Math.random() * 6) + 1);
+       console.log(c);
+       sum3+=c;
+       document.querySelector(".member-3").innerText=sum3;
+       
+
+       if(sum1>sum2 && sum1>sum3){
+        document.querySelector("#member-1").style.backgroundColor="green";
+       }
+       else if(sum1>sum2 && sum1<sum3 || sum1<sum2 && sum1>sum3){
+        document.querySelector("#member-1").style.backgroundColor="yellow";
+       }
+       else if(sum1<sum2 && sum1<sum3){
+        document.querySelector("#member-1").style.backgroundColor="red";
+       }
+       else if(sum1==sum2){
+        document.querySelector("#member-1").style.backgroundColor="blue";
+        document.querySelector("#member-2").style.backgroundColor="blue";
+       }
+       else if(sum1==sum3){
+        document.querySelector("#member-1").style.backgroundColor="blue";
+        document.querySelector("#member-3").style.backgroundColor="blue";
+       }
+
+
+       if(sum2>sum1 && sum2>sum3){
+        document.querySelector("#member-2").style.backgroundColor="green";
+       }
+       else if(sum2>sum1 && sum2<sum3 || sum2<sum1 && sum2>sum3){
+        document.querySelector("#member-2").style.backgroundColor="yellow";
+       }
+       else if(sum2<sum1 && sum2<sum3){
+        document.querySelector("#member-2").style.backgroundColor="red";
+       }
+       else if(sum2==sum1){
+        document.querySelector("#member-1").style.backgroundColor="blue";
+        document.querySelector("#member-2").style.backgroundColor="blue";
+       }
+       else if(sum2==sum3){
+        document.querySelector("#member-2").style.backgroundColor="blue";
+        document.querySelector("#member-3").style.backgroundColor="blue";
+       }
+
+       if(sum3>sum2 && sum3>sum1){
+        document.querySelector("#member-3").style.backgroundColor="green";
+       }
+       else if(sum3>sum2 && sum3<sum1 || sum3<sum2 && sum3>sum1){
+        document.querySelector("#member-3").style.backgroundColor="yellow";
+       }
+       else if(sum3<sum2 && sum3<sum1){
+        document.querySelector("#member-3").style.backgroundColor="red";
+       }
+       else if(sum3==sum1){
+        document.querySelector("#member-1").style.backgroundColor="blue";
+        document.querySelector("#member-3").style.backgroundColor="blue";
+       }
+       else if(sum3==sum2){
+        document.querySelector("#member-2").style.backgroundColor="blue";
+        document.querySelector("#member-3").style.backgroundColor="blue";
+       }
+
+
+       var win=Math.max(sum1,sum2,sum3);
+       if(win==sum1){
+       document.querySelector(".winner").innerText="A";
+       }
+       else if(win==sum2){
+       document.querySelector(".winner").innerText="B";
+       }
+       else if(win==sum3){
+       document.querySelector(".winner").innerText="C";
+       }
+    }
+
+</script>
