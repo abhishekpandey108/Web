@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List</title>
+    <style>
+        .con{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            padding: 5px;
+        }
+        #container img{
+            width: 280px;
+            height:240px;
+        }
+        #delB{
+            width:100px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            padding: 3px;
+        }
+        #delB:hover{
+            transform: scale(1.02);
+            box-shadow: 2px 2px 5px rgb(122, 3, 23);
+         }
+
+         @media screen and (max-width:990px){
+            .con{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            padding: 5px;
+            }
+            #container img{
+                width: 250px;
+                height:220px;
+            }
+         }
+         @media screen and (max-width:700px){
+            .con{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
+            padding: 5px;
+            }
+            #container img{
+                width: 220px;
+                height:200px;
+            }
+         }
+         @media screen and (max-width:400px){
+            .con{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap: 20px;
+            padding-right: 5px;
+            }
+            #container img{
+                width: 240px;
+                height:200px;
+            }
+         }
+    </style>
+    </head>
+    <body>
+        <div class="con"></div>
+        <!-- <table>
+            <thead>
+                <th>Image</th>
+                <th>Movie Name</th>
+                <th>Delete</th>
+            </thead>
+            <tbody></tbody>
+        </table> -->
+    </body>
+    </html>
+    <script>
+    var arr=JSON.parse(localStorage.getItem("Movies")) || [];
+        console.log(arr);
+    display(arr);
+    function display(data){
+        data.map(function(elem){
+            var tr=document.createElement("div");
+            tr.setAttribute("id","container");
+            
+            var td1=document.createElement("td");
+            var img=document.createElement("img");
+            img.setAttribute("src",elem.img);
+            img.setAttribute("alt",elem.name);
+            td1.append(img);
+            
+            var td2=document.createElement("h4");
+            td2.innerText=elem.name;
+            
+            var td3=document.createElement("h4");
+            td3.innerText="Delete";
+            td3.setAttribute("id","delB");
+            
+            td3.addEventListener("click",function(){
+                deleteRow(elem.id);
+            });
+
+
+            tr.append(td1,td2,td3);
+            document.querySelector(".con").append(tr);
+        });
+
+        function deleteRow(id){
+            var updatedArr=arr.filter(function(elem){
+                return elem.id != id;
+            });
+
+            localStorage.setItem("Movies",JSON.stringify(updatedArr));
+
+        }
+    }
+
+    </script>
