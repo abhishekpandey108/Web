@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container{
+            display: flex;
+            background-color: green;
+            color:white;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        #container>div{
+           padding: 10px;
+           cursor: pointer;
+           
+        }
+        #container>div:hover{
+            text-decoration: underline;
+           transform: scale(1.05);
+        }
+
+
+        .slideShow-img{
+            width: 95%;
+            height: 60vh;
+            object-fit: center;
+            display: block;
+            margin: auto;
+        }
+        .slideShow{
+            width: 80%;
+            margin: auto;
+        }
+     </style>
+
+</head>
+<body>
+    <div id="container">
+        <div>Home</div>
+        <div>Login</div>
+        <div>Sign up</div>
+    </div>
+    <div id="slideShow">
+
+    </div>
+    
+</body>
+</html>
+<script>
+    var images=[
+        "https://shifu.hotstarext.com/SOURCE/VOD/cd-2022-07-05/EnvsInd_RohvBut3ADarkDesk-61f04eb3-ecf4-4e0d-b1db-224c82a7793e.jpg",
+        "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/3668/593668-h",
+        "https://shifu.hotstarext.com/SOURCE/VOD/cd-2022-07-05/EnvsInd_BumvSto5BLightDesk-767b980f-4630-4057-8a7b-f450cbf7210b.jpg",
+        "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/3625/753625-v"
+    ]
+    //var x;
+
+    var slideShowContainer=document.getElementById("slideShow");
+    var img=document.createElement("img");
+    var i=0;
+
+    var x=setInterval(function(){
+        if(i==images.length){
+            i=0;
+           // clearInterval(x);
+        }
+
+        img.src=images[i];
+        img.className="slideShow-img";
+        i++;
+    },2000);
+
+    slideShowContainer.append(img);
+</script>
